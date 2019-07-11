@@ -42,7 +42,4 @@
   <ItemGroup>
     <Text Include="Inventory.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-  </ItemGroup>
 </Project>
