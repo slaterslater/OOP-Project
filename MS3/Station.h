@@ -14,7 +14,9 @@
 namespace sict {
 
 	class Station {
-			std::queue<ItemSet> items;
+			ItemSet item;
+			//std::string station_name;
+			std::queue<CustomerOrder> request;
 		public:
 			Station(const std::string);
 			Station(const Station&) = delete;

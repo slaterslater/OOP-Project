@@ -187,7 +187,7 @@ namespace sict {
 			}
 			if (k > kmax) firstStation = i;
 		}
-
+		
 		// verify longest path
 		os << "\nFor Manual Validation:" << std::endl;
 		size_t i = firstStation;

@@ -5,15 +5,31 @@
 namespace sict {
 
 	ItemSet::ItemSet(const std::string str) {
+		/*Utilities helper;
+		size_t beginningOfStr = 0;
+		try
+		{
+			name = helper.extractToken(str, beginningOfStr);
+			if (name.length() > helper.getFieldWidth())
+				helper.setFieldWidth(name.length() + 1);
+			serial_number = std::stol(helper.extractToken(str, beginningOfStr));
+			quantity = std::stoi(helper.extractToken(str, beginningOfStr));
+			description = helper.extractToken(str, beginningOfStr);
+		}
+		catch (const char* errMsg)
+		{
+			std::cout << "ERROR : " << errMsg << std::endl;
+		}*/
+		
 		Utilities util;
 		name = util.extractToken(str, 0);
 		if (name.length() > util.getFieldWidth())
 			util.setFieldWidth(name.length()+1);
 		size_t next_pos = str.find(util.getDelimiter())+1;
 		serial_number = std::stoul(util.extractToken(str, next_pos));
-		next_pos = str.find(util.getDelimiter(), next_pos + 1)+1;
+		//next_pos = str.find(util.getDelimiter(), next_pos + 1)+1;
 		quantity = std::stoul(util.extractToken(str, next_pos));
-		next_pos = str.find(util.getDelimiter(), next_pos + 1)+1;
+		//next_pos = str.find(util.getDelimiter(), next_pos + 1)+1;
 		description = util.extractToken(str, next_pos);
 	}
 
@@ -24,7 +40,6 @@ namespace sict {
 	const unsigned int ItemSet::getQuantity() const { return quantity; }
 
 	ItemSet& ItemSet::operator--() {
-		// should check quantity != 0
 		--quantity;
 		++serial_number;
 		return *this;
